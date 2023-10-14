@@ -27,7 +27,7 @@ public class Mayusculas {
             linea = teclado.readLine();
 
             while (!linea.equals("fin")) {
-                salidaHijo.println(linea); // Envía la línea al proceso hijo
+                salidaHijo.println(linea); // EnvÃ­a la lÃ­nea al proceso hijo
                 salidaHijo.flush();
                 numero = entradaHijo.readLine();
                 if (numero != null) {
