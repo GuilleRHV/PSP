@@ -18,7 +18,7 @@ public class GenerarMayusculas {
 		String linea = entrada.readLine();
 		
 		while(linea!=null) {
-			int n = rand.nextInt(11);
+		
 			String textomayus = linea.toUpperCase();
 			salida.println(textomayus);
 			salida.flush();
