@@ -1,67 +1,54 @@
-package tema1;
+package ejercicios;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
-public class Primos {
+public class CalculaPrimos {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-
-		Random rand = new Random();
-		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
 		
 		PrintStream salida = new PrintStream(System.out);
 		String linea = entrada.readLine();
 		
-		while(linea!=null) {
+		
+		
+		if (linea!=null) {
 			
 			int numprimo = Integer.parseInt(linea);
 			int cont = 0;
-			List <Integer>primos = new ArrayList<>();
-			for( int i = numprimo; i > 0; i--) {
-				if(numprimo%i==0) {
-					cont++;
-					
-				}
-			}
 		
 				
 			if(!esPrimo(numprimo)) {
 				
-				String frase ="";
-			
-				frase=frase+"El numero "+numprimo+" no es primo\nLos numeros primos menores que "+numprimo+": \n";
+				
+				salida.println("El numero "+numprimo+" no es primo\nLos numeros primos menores que "+numprimo+": ");
+				salida.flush();
+				//frase=frase+"El numero "+numprimo+" no es primo\nLos numeros primos menores que "+numprimo+": \n";
 				for( int x = numprimo; x> 0; x--) {
 					
 					if(esPrimo(x)) {
-						primos.add(x);
-						
+					
+						salida.println(x);
+						salida.flush();
 					}
 				}
 				
-				if(primos!=null) {
-			
-					for (Integer p : primos) {
-						frase=frase+p+"\n";
-						
-					}
-				}
-			
-				salida.print(frase);
 			}else {
 				
 				
 				salida.println("El numero "+numprimo+" es primo");
+				salida.flush();
 			}
-			salida.flush();
-			linea = entrada.readLine();
+			
+			
+			
+			
 		}
+		
 		System.exit(0);
 	}
 	
@@ -79,6 +66,6 @@ public class Primos {
 	    }
 	    return true;
 	}
+	
 
 }
-
