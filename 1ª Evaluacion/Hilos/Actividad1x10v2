@@ -84,7 +84,7 @@ class Frutero extends Thread {
     public void run() {
         try {
             while (true) {
-                semaforoAtencion.release(); // Indicar que está disponible para atender
+                
                 semaforoSalida.acquire(); // Esperar a que el cliente salga de la tienda
 
                 // Simular tiempo de espera aleatorio
@@ -99,6 +99,7 @@ class Frutero extends Thread {
                 // Actualizar totales
                 tiempoTotal += tiempoEspera;
                 System.out.println("_________________________________");
+                semaforoAtencion.release(); // Indicar que está disponible para atender
             }
 
         } catch (InterruptedException e) {
@@ -116,7 +117,7 @@ class Frutero extends Thread {
 
 public class Actividad1x10 {
     public static void main(String[] args) {
-        Semaphore semaforoAtencion = new Semaphore(0);
+        Semaphore semaforoAtencion = new Semaphore(1);
         Semaphore semaforoSalida = new Semaphore(0);
         CuentaCompartida cuentaCompartida = new CuentaCompartida();
 
